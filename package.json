@@ -1,0 +1,42 @@
+{
+    "name": "frostui-passwordstrength",
+    "version": "1.0.0",
+    "description": "FrostUI-PasswordStrength is a free, open-source Password Strength component for Javascript.",
+    "keywords": [
+        "ui",
+        "component",
+        "password",
+        "strength",
+        "front-end",
+        "web"
+    ],
+    "homepage": "https://github.com/elusivecodes/FrostUI-PasswordStrength",
+    "bugs": {
+        "url": "https://github.com/elusivecodes/FrostUI-PasswordStrength/issues",
+        "email": "elusivecodes@gmail.com"
+    },
+    "main": "./dist/frost-ui-passwordstrength.js",
+    "files": [
+        "/dist/frost-ui-passwordstrength.css",
+        "/dist/frost-ui-passwordstrength.js",
+        "/src/scss",
+        "/LICENSE",
+        "/README.md"
+    ],
+    "scripts": {
+        "build": "node build.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "stylelint \"src/scss/**/*.scss\" --fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/elusivecodes/FrostUI-PasswordStrength.git"
+    },
+    "author": "Elusive",
+    "license": "MIT",
+    "private": false,
+    "devDependencies": {
+        "filepath": "^1.1.0",
+        "terser": "^5.7.0"
+    }
+}

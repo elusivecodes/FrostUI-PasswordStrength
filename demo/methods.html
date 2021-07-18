@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrostUI PasswordStrength Methods</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/elusivecodes/frostui/dist/frost-ui.css">
+    <script src="https://cdn.jsdelivr.net/gh/elusivecodes/frostui/dist/frost-ui-bundle.js"></script>
+    <script src="../dist/frost-ui-passwordstrength.js"></script>
+</head>
+
+<body>
+    <div class="container pt-5">
+        <div class="mb-4">
+            <label for="passwordDispose">Default</label>
+            <div>
+                <div class="form-input">
+                    <input class="input-filled" id="passwordDispose" type="password" placeholder="Placeholder" />
+                    <div class="ripple-line"></div>
+                </div>
+            </div>
+            <div class="mt-1">
+                <button class="btn btn-danger ripple mb-0" id="passwordDisposeBtn" type="button">Dispose</button>
+                <button class="btn btn-primary ripple mb-0" id="passwordInitBtn" type="button">Init</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const passwordDispose = dom.findOne('#passwordDispose');
+        const passwordDisposeBtn = dom.findOne('#passwordDisposeBtn');
+        const passwordInitBtn = dom.findOne('#passwordInitBtn');
+
+        UI.PasswordStrength.init(passwordDispose);
+
+        dom.addEvent(passwordDisposeBtn, 'click', e => {
+            UI.PasswordStrength.init(passwordDispose).dispose();
+        });
+
+        dom.addEvent(passwordInitBtn, 'click', e => {
+            UI.PasswordStrength.init(passwordDispose);
+        });
+    </script>
+</body>
+
+</html>
