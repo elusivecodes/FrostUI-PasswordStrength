@@ -13,33 +13,46 @@
 <body>
     <div class="container pt-5">
         <div class="mb-4">
-            <label for="passwordDispose">Default</label>
+            <label for="passwordDefault">Default</label>
             <div>
                 <div class="form-input">
-                    <input class="input-filled" id="passwordDispose" type="password" placeholder="Placeholder" />
+                    <input class="input-filled" id="passwordDefault" type="password" placeholder="Placeholder" />
                     <div class="ripple-line"></div>
                 </div>
             </div>
             <div class="mt-1">
-                <button class="btn btn-danger ripple mb-0" id="passwordDisposeBtn" type="button">Dispose</button>
-                <button class="btn btn-primary ripple mb-0" id="passwordInitBtn" type="button">Init</button>
+                <div class="btn-group">
+                    <button class="btn btn-primary ripple mb-0" id="passwordInit" type="button">Init</button>
+                    <button class="btn btn-danger ripple mb-0" id="passwordDispose" type="button">Dispose</button>
+                </div>
             </div>
+            <div class="mt-1">
+                <button class="btn btn-secondary ripple mb-0" id="passwordGetStrength" type="button">Get Strength</button>
+            </div>
+            <samp id="output"></samp>
         </div>
     </div>
     <script>
+        const passwordDefault = dom.findOne('#passwordDefault');
+        const passwordInit = dom.findOne('#passwordInit');
         const passwordDispose = dom.findOne('#passwordDispose');
-        const passwordDisposeBtn = dom.findOne('#passwordDisposeBtn');
-        const passwordInitBtn = dom.findOne('#passwordInitBtn');
+        const passwordGetStrength = dom.findOne('#passwordGetStrength');
+        const output = dom.findOne('#output');
 
-        UI.PasswordStrength.init(passwordDispose);
-
-        dom.addEvent(passwordDisposeBtn, 'click', e => {
-            UI.PasswordStrength.init(passwordDispose).dispose();
+        dom.addEvent(passwordInit, 'click', e => {
+            UI.PasswordStrength.init(passwordDefault);
         });
 
-        dom.addEvent(passwordInitBtn, 'click', e => {
-            UI.PasswordStrength.init(passwordDispose);
+        dom.addEvent(passwordDispose, 'click', e => {
+            UI.PasswordStrength.init(passwordDefault).dispose();
         });
+
+        dom.addEvent(passwordGetStrength, 'click', e => {
+            const strength = UI.PasswordStrength.init(passwordDefault).getStrength();
+            dom.setText(output, `Strength: ${strength}`);
+        });
+
+        dom.triggerEvent(passwordInit, 'click');
     </script>
 </body>
 

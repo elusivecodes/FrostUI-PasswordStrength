@@ -21,7 +21,10 @@ class PasswordStrength extends UI.BaseComponent {
 
         this._render();
         this._refresh();
-        this._events();
+
+        dom.addEvent(this._node, 'input.ui.passwordstrength', _ => {
+            this._refresh();
+        });
     }
 
     /**

@@ -1,6 +1,6 @@
 {
     "name": "frostui-passwordstrength",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "FrostUI-PasswordStrength is a free, open-source Password Strength component for Javascript.",
     "keywords": [
         "ui",

@@ -1,5 +1,5 @@
 /**
- * FrostUI-PasswordStrength v1.0.13
+ * FrostUI-PasswordStrength v1.0.1
  * https://github.com/elusivecodes/FrostUI-PasswordStrength
  */
 (function(global, factory) {
@@ -49,7 +49,10 @@
 
             this._render();
             this._refresh();
-            this._events();
+
+            dom.addEvent(this._node, 'input.ui.passwordstrength', _ => {
+                this._refresh();
+            });
         }
 
         /**
@@ -76,24 +79,6 @@
         }
 
     }
-
-
-    /**
-     * PasswordStrength Events
-     */
-
-    Object.assign(PasswordStrength.prototype, {
-
-        /**
-         * Attach events for the PasswordStrength.
-         */
-        _events() {
-            dom.addEvent(this._node, 'input.ui.passwordstrength', _ => {
-                this._refresh();
-            });
-        }
-
-    });
 
 
     /**
