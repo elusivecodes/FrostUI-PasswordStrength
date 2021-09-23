@@ -1,5 +1,5 @@
 /**
- * FrostUI-PasswordStrength v1.0.1
+ * FrostUI-PasswordStrength v1.0.2
  * https://github.com/elusivecodes/FrostUI-PasswordStrength
  */
 (function(global, factory) {
