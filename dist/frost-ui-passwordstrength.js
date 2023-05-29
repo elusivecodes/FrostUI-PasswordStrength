@@ -79,7 +79,7 @@
 
         $.setStyle(this._progressBar, { width: `${strength}%` });
         $.setAttribute(this._progressBar, {
-            class: this.constructor.classes.progressBar,
+            'class': this.constructor.classes.progressBar,
             'aria-valuenow': strength,
         });
 
