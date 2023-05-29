@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FrostUI PasswordStrength Methods</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/elusivecodes/frostui@1.4.6/dist/frost-ui.css">
-    <script src="https://cdn.jsdelivr.net/gh/elusivecodes/frostui@1.4.6/dist/frost-ui-bundle.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/elusivecodes/frostui@2.3.1/dist/frost-ui.css">
+    <script src="https://cdn.jsdelivr.net/gh/elusivecodes/frostui@2.3.1/dist/frost-ui-bundle.js"></script>
     <script src="../dist/frost-ui-passwordstrength.js"></script>
 </head>
 
@@ -33,26 +33,26 @@
         </div>
     </div>
     <script>
-        const passwordDefault = dom.findOne('#passwordDefault');
-        const passwordInit = dom.findOne('#passwordInit');
-        const passwordDispose = dom.findOne('#passwordDispose');
-        const passwordGetStrength = dom.findOne('#passwordGetStrength');
-        const output = dom.findOne('#output');
+        const passwordDefault = $.findOne('#passwordDefault');
+        const passwordInit = $.findOne('#passwordInit');
+        const passwordDispose = $.findOne('#passwordDispose');
+        const passwordGetStrength = $.findOne('#passwordGetStrength');
+        const output = $.findOne('#output');
 
-        dom.addEvent(passwordInit, 'click', e => {
+        $.addEvent(passwordInit, 'click', e => {
             UI.PasswordStrength.init(passwordDefault);
         });
 
-        dom.addEvent(passwordDispose, 'click', e => {
+        $.addEvent(passwordDispose, 'click', e => {
             UI.PasswordStrength.init(passwordDefault).dispose();
         });
 
-        dom.addEvent(passwordGetStrength, 'click', e => {
+        $.addEvent(passwordGetStrength, 'click', e => {
             const strength = UI.PasswordStrength.init(passwordDefault).getStrength();
-            dom.setText(output, `Strength: ${strength}`);
+            $.setText(output, `Strength: ${strength}`);
         });
 
-        dom.triggerEvent(passwordInit, 'click');
+        $.triggerEvent(passwordInit, 'click');
     </script>
 </body>
 

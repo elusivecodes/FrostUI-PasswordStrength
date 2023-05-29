@@ -1,6 +1,6 @@
 {
-    "name": "frostui-passwordstrength",
-    "version": "1.0.5",
+    "name": "@fr0st/ui-passwordstrength",
+    "version": "2.0.0",
     "description": "FrostUI-PasswordStrength is a free, open-source Password Strength component for Javascript.",
     "keywords": [
         "ui",
@@ -15,18 +15,19 @@
         "url": "https://github.com/elusivecodes/FrostUI-PasswordStrength/issues",
         "email": "elusivecodes@gmail.com"
     },
-    "main": "./dist/frost-ui-passwordstrength.js",
+    "main": "src/index.js",
+    "type": "module",
     "files": [
-        "/dist/frost-ui-passwordstrength.css",
-        "/dist/frost-ui-passwordstrength.js",
-        "/src/scss",
+        "dist",
         "/LICENSE",
-        "/README.md"
+        "/README.md",
+        "src"
     ],
     "scripts": {
-        "build": "node build.js",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "lint": "stylelint \"src/scss/**/*.scss\" --fix"
+        "build": "npm run js-compile && npm run js-minify",
+        "js-compile": "rollup --config",
+        "js-lint": "eslint --ext .js .",
+        "js-minify": "terser --compress passes=2 --mangle --source-map \"content=dist/frost-ui-passwordstrength.js.map\" --output dist/frost-ui-passwordstrength.min.js dist/frost-ui-passwordstrength.js"
     },
     "repository": {
         "type": "git",
@@ -36,7 +37,10 @@
     "license": "MIT",
     "private": false,
     "devDependencies": {
-        "filepath": "^1.1.0",
-        "terser": "^5.7.0"
+        "@rollup/plugin-node-resolve": "^15.0.2",
+        "eslint": "^8.41.0",
+        "eslint-config-google": "^0.14.0",
+        "rollup": "^3.23.0",
+        "terser": "^5.17.6"
     }
 }
