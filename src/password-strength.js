@@ -31,6 +31,7 @@ export default class PasswordStrength extends BaseComponent {
     dispose() {
         $.remove(this._progress);
         $.removeEvent(this._node, 'input.ui.passwordstrength');
+        $.removeAttribute(this._node, 'aria-describedby');
 
         this._container = null;
         this._progress = null;

@@ -34,6 +34,7 @@
         dispose() {
             $.remove(this._progress);
             $.removeEvent(this._node, 'input.ui.passwordstrength');
+            $.removeAttribute(this._node, 'aria-describedby');
 
             this._container = null;
             this._progress = null;
@@ -102,8 +103,11 @@
             class: this.constructor.classes.progress,
         });
 
+        const id = ui.generateId('password-strength');
+
         this._progressBar = $.create('div', {
             attributes: {
+                'id': id,
                 'role': 'progressbar',
                 'aria-valuemin': 0,
                 'aria-valuemax': 100,
@@ -112,6 +116,10 @@
 
         $.append(this._progress, this._progressBar);
         $.append(this._container, this._progress);
+
+        $.setAttribute(this._node, {
+            'aria-describedby': id,
+        });
     }
 
     /**
